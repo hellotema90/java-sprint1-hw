@@ -12,9 +12,9 @@ public class Main {
                 stepTracker.amountStep();
                 printMenu();
                 userInput = scanner.nextInt();
-
             } else if (userInput == 2) {
                 stepTracker.staticsPrint();
+                stepTracker.printFullStat();
                 printMenu();
                 userInput = scanner.nextInt();
             } else if (userInput == 3) {
