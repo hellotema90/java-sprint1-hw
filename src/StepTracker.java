@@ -38,36 +38,39 @@ public class StepTracker {
             }
         }
         monthToData[numberMonth].inputDayData(numberDay, numberStep);
-        System.out.println("Сохранили количество шагов в нужный день");
+        System.out.println("Значение сохранено. Прошли " + numberStep + " шагов.");
 
     }
 
     void staticsPrint() {
-        System.out.println("Введите номер месяца от 0 до 11:");
-        System.out.println("0 - Январь");
-        System.out.println("1 - Февраль");
-        System.out.println("2 - Март");
-        System.out.println("3 - Апрель");
-        System.out.println("4 - Май");
-        System.out.println("5 - Июнь");
-        System.out.println("6 - Июль");
-        System.out.println("7 - Август");
-        System.out.println("8 - Сентябрь");
-        System.out.println("9 - Октябрь");
-        System.out.println("10 - Ноябрь");
-        System.out.println("11 - Декабрь");
-        int numberMonth = scanner.nextInt();
-        if (numberMonth < 0 || numberMonth > 11) {
-            System.out.println("Такого номера месяца нет!");
+        while (true) {
+            System.out.println("Введите номер месяца от 0 до 11:");
+            System.out.println("0 - Январь");
+            System.out.println("1 - Февраль");
+            System.out.println("2 - Март");
+            System.out.println("3 - Апрель");
+            System.out.println("4 - Май");
+            System.out.println("5 - Июнь");
+            System.out.println("6 - Июль");
+            System.out.println("7 - Август");
+            System.out.println("8 - Сентябрь");
+            System.out.println("9 - Октябрь");
+            System.out.println("10 - Ноябрь");
+            System.out.println("11 - Декабрь");
+            int numberMonth = scanner.nextInt();
+            if (numberMonth < 0 || numberMonth > 11) {
+                System.out.println("Такого номера месяца нет!");
+            } else {
+                break;
+            }
         }
-
     }
 
 
     void printFullStat() {
+        staticsPrint();
         for (int j = 1; j < monthToData[numberMonth].dayData.length; j++) {
             System.out.println(" " + j + " день: " + monthToData[numberMonth].dayData[j]);
-
         }
         System.out.println("1. Общее количество шагов за месяц: " + calculateStep(numberMonth));
         System.out.println("2. Максимальное пройденное количество шагов в месяце: " + maxStepPerDay(numberMonth));
@@ -83,8 +86,6 @@ public class StepTracker {
         for (int j = 1; j < monthToData[numberMonth].dayData.length; j++) {
             calculateStep += monthToData[numberMonth].dayData[j];
         }
-        System.out.println();
-
         return calculateStep;
     }
 

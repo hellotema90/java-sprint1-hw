@@ -13,7 +13,6 @@ public class Main {
                 printMenu();
                 userInput = scanner.nextInt();
             } else if (userInput == 2) {
-                stepTracker.staticsPrint();
                 stepTracker.printFullStat();
                 printMenu();
                 userInput = scanner.nextInt();
@@ -21,9 +20,6 @@ public class Main {
                 stepTracker.newGoalStep();
                 printMenu();
                 userInput = scanner.nextInt();
-            } else if (userInput == 0){
-                System.out.println("Программа завершена");
-                break;
             } else {
                 System.out.println("Такой команды нет");
                 printMenu();
