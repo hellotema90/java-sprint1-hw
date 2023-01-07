@@ -69,8 +69,8 @@ public class StepTracker {
 
     void printFullStat() {
         staticsPrint();
-        for (int j = 1; j < monthToData[numberMonth].dayData.length; j++) {
-            System.out.println(" " + j + " день: " + monthToData[numberMonth].dayData[j]);
+        for (int j = 0; j < monthToData[numberMonth].dayData.length; j++) {
+            System.out.println(" " + (j + 1) + " день: " + monthToData[numberMonth].dayData[j]);
         }
         System.out.println("1. Общее количество шагов за месяц: " + calculateStep(numberMonth));
         System.out.println("2. Максимальное пройденное количество шагов в месяце: " + maxStepPerDay(numberMonth));
@@ -83,7 +83,7 @@ public class StepTracker {
 
     int calculateStep(int numberMonth) {
         int calculateStep = 0;
-        for (int j = 1; j < monthToData[numberMonth].dayData.length; j++) {
+        for (int j = 0; j < monthToData[numberMonth].dayData.length; j++) {
             calculateStep += monthToData[numberMonth].dayData[j];
         }
         return calculateStep;
@@ -133,7 +133,8 @@ public class StepTracker {
             dayData = new int[30];
         }
         void inputDayData(int dayNumber, int numSteps) {
-            dayData[dayNumber] = numSteps;
+            dayData[dayNumber - 1] = numSteps;
+
         }
     }
 }
