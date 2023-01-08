@@ -3,7 +3,7 @@ public class StepTracker {
     Scanner scanner = new Scanner(System.in);
     Converter converter = new Converter();
     int goalStep = 10000;
-    int numberMonth;
+    int numberMonth = 0;
 
     MonthData[] monthToData;
 
@@ -37,7 +37,7 @@ public class StepTracker {
                 break;
             }
         }
-        monthToData[numberMonth].inputDayData(numberDay, numberStep);
+        monthToData[numberMonth].dayData[numberDay - 1] = numberStep;
         System.out.println("Значение сохранено. Прошли " + numberStep + " шагов.");
 
     }
@@ -57,7 +57,7 @@ public class StepTracker {
             System.out.println("9 - Октябрь");
             System.out.println("10 - Ноябрь");
             System.out.println("11 - Декабрь");
-            int numberMonth = scanner.nextInt();
+            numberMonth = scanner.nextInt();
             if (numberMonth < 0 || numberMonth > 11) {
                 System.out.println("Такого номера месяца нет!");
             } else {
@@ -69,6 +69,7 @@ public class StepTracker {
 
     void printFullStat() {
         staticsPrint();
+
         for (int j = 0; j < monthToData[numberMonth].dayData.length; j++) {
             System.out.println(" " + (j + 1) + " день: " + monthToData[numberMonth].dayData[j]);
         }
@@ -132,9 +133,6 @@ public class StepTracker {
         MonthData() {
             dayData = new int[30];
         }
-        void inputDayData(int dayNumber, int numSteps) {
-            dayData[dayNumber - 1] = numSteps;
 
-        }
     }
 }
